@@ -1,7 +1,7 @@
-import { First } from '@/components/Welcome/First'
-import { Forth } from '@/components/Welcome/Forth'
-import { Second } from '@/components/Welcome/Second'
-import { Third } from '@/components/Welcome/Third'
+import { First } from '@/components/Welcome/First/First'
+import { Forth } from '@/components/Welcome/Forth/Forth'
+import { Second } from '@/components/Welcome/Second/Second'
+import { Third } from '@/components/Welcome/Third/Third'
 import { Welcome } from '@/views/welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 

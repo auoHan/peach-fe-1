@@ -2,18 +2,27 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
+	background: rgb(231, 172, 172);
+	background: linear-gradient(
+		0deg,
+		rgba(231, 172, 172, 1) 0%,
+		rgba(239, 97, 134, 1) 100%
+	);
 	> header {
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding-top: 66px;
+		color: #fde9e9;
 		> img {
-			height: 14vh;
-			width: 14vw;
+			height: 8vh;
 		}
 	}
 	> main {
 		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
 	}
 }
