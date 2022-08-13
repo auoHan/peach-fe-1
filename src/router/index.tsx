@@ -6,6 +6,7 @@ import { Second } from '@/components/Welcome/Second/Second'
 import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
+import { StartPage } from '@/views/startpage'
 import { Welcome } from '@/views/welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -44,7 +45,8 @@ const routes: RouteRecordRaw[] = [
 				components: { main: Forth, footer: ForthActions }
 			}
 		]
-	}
+	},
+	{ path: '/start', component: StartPage }
 ]
 
 export const router = createRouter({
