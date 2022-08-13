@@ -1,3 +1,5 @@
+import { ItemCreate } from '@/components/Item/Create/ItemCreate'
+import { ItemList } from '@/components/Item/List/ItemList'
 import { First } from '@/components/Welcome/First/First'
 import { FirstActions } from '@/components/Welcome/First/FirstActions'
 import { Forth } from '@/components/Welcome/Forth/Forth'
@@ -6,6 +8,7 @@ import { Second } from '@/components/Welcome/Second/Second'
 import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
+import { ItemPage } from '@/views/itempage'
 import { StartPage } from '@/views/startpage'
 import { Welcome } from '@/views/welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
@@ -46,7 +49,15 @@ const routes: RouteRecordRaw[] = [
 			}
 		]
 	},
-	{ path: '/start', component: StartPage }
+	{ path: '/start', component: StartPage },
+	{
+		path: '/items',
+		component: ItemPage,
+		children: [
+			{ path: '', component: ItemList },
+			{ path: 'create', component: ItemCreate }
+		]
+	}
 ]
 
 export const router = createRouter({
