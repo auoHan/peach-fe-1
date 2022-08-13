@@ -1,11 +1,12 @@
 import { defineComponent } from 'vue'
 import s from '@/components/Welcome/welcome.module.scss'
-import pig from '@/assets/icons/welcome/pig.svg'
 export const First = defineComponent({
 	setup: (props, context) => {
 		return () => (
 			<div class={s.card}>
-				<img src={pig} class={s.icon} />
+				<svg>
+					<use xlinkHref="#pig"></use>
+				</svg>
 				<h2>
 					会挣钱
 					<br />

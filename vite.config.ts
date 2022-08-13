@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import * as path from 'path'
 import vue from '@vitejs/plugin-vue'
+import { svgstore } from './src/vite_plugins/svgstore';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +11,8 @@ export default defineConfig({
     vueJsx({
       transformOn: true,
       mergeProps: true
-    })
+    }),
+    svgstore()
   ],
   //别名
   resolve: {

@@ -1,9 +1,10 @@
 import s from '@/components/Welcome/welcome.module.scss'
-import chart from '@/assets/icons/welcome/chart.svg'
 export const Third = () => {
 	return (
 		<div class={s.card}>
-			<img class={s.icon} src={chart} />
+			<svg>
+				<use xlinkHref="#chart"></use>
+			</svg>
 			<h2>
 				数据可视化
 				<br />
