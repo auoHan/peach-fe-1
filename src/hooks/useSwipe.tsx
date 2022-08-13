@@ -43,6 +43,8 @@ export const useSwipe = (element: Ref<HTMLElement | null>) => {
 	}
 	const onEnd = (e: TouchEvent) => {
 		swiping.value = false
+		start.value = null
+		end.value = null
 	}
 
 	onMounted(() => {
