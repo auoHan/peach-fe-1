@@ -1,13 +1,35 @@
 import { defineComponent, ref, Transition, VNode, watchEffect } from 'vue'
-import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router'
+import {
+	RouteLocationNormalizedLoaded,
+	RouterView,
+	useRoute,
+	useRouter
+} from 'vue-router'
 import s from '@/views/welcome/welcome.module.scss'
 import { useSwipe } from '@/hooks/useSwipe'
+import { throttle } from '@/shared/throttle'
+const replaceMap: Record<string, string> = {
+	Welcome1: '/welcome/2',
+	Welcome2: '/welcome/3',
+	Welcome3: '/welcome/4',
+	Welcome4: '/start'
+}
 export const Welcome = defineComponent({
 	setup: (props, context) => {
 		const main = ref<HTMLElement | null>(null)
-		const { direction, swiping } = useSwipe(main)
+		const { direction, swiping } = useSwipe(main, {
+			beforeStart: (e) => e.preventDefault()
+		})
+		const route = useRoute()
+		const router = useRouter()
+		const replace = throttle(() => {
+			const name = route.name?.toString() || 'Welcome1'
+			router.replace(replaceMap[name])
+		}, 500)
 		watchEffect(() => {
-			console.log(swiping.value, direction.value)
+			if (swiping.value && direction.value === 'left') {
+				replace()
+			}
 		})
 		return () => (
 			<div class={s.wrapper}>
