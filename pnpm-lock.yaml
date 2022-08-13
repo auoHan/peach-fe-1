@@ -4,6 +4,7 @@ specifiers:
   '@types/node': 18.7.2
   '@vitejs/plugin-vue': 3.0.1
   '@vitejs/plugin-vue-jsx': 2.0.0
+  animate.css: 4.1.1
   sass: 1.54.4
   typescript: 4.7.4
   vite: 3.0.5
@@ -12,6 +13,7 @@ specifiers:
   vue-tsc: 0.38.9
 
 dependencies:
+  animate.css: 4.1.1
   vue: 3.2.37
   vue-router: 4.1.3_vue@3.2.37
 
@@ -529,6 +531,10 @@ packages:
 
   /@vue/shared/3.2.37:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
+
+  /animate.css/4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
+    dev: false
 
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}

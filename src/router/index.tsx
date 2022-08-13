@@ -1,7 +1,11 @@
-import { First } from '@/components/Welcome/First'
-import { Forth } from '@/components/Welcome/Forth'
-import { Second } from '@/components/Welcome/Second'
-import { Third } from '@/components/Welcome/Third'
+import { First } from '@/components/Welcome/First/First'
+import { FirstActions } from '@/components/Welcome/First/FirstActions'
+import { Forth } from '@/components/Welcome/Forth/Forth'
+import { ForthActions } from '@/components/Welcome/Forth/ForthActions'
+import { Second } from '@/components/Welcome/Second/Second'
+import { SecondActions } from '@/components/Welcome/Second/SecondActions'
+import { Third } from '@/components/Welcome/Third/Third'
+import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
 import { Welcome } from '@/views/welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -20,19 +24,19 @@ const routes: RouteRecordRaw[] = [
 			},
 			{
 				path: '1',
-				component: First
+				components: { main: First, footer: FirstActions }
 			},
 			{
 				path: '2',
-				component: Second
+				components: { main: Second, footer: SecondActions }
 			},
 			{
 				path: '3',
-				component: Third
+				components: { main: Third, footer: ThirdActions }
 			},
 			{
 				path: '4',
-				component: Forth
+				components: { main: Forth, footer: ForthActions }
 			}
 		]
 	}
