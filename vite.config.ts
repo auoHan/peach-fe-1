@@ -3,6 +3,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import * as path from 'path'
 import vue from '@vitejs/plugin-vue'
 import { svgstore } from './src/vite_plugins/svgstore';
+import Components from 'unplugin-vue-components/vite';
+import { VantResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,7 +14,10 @@ export default defineConfig({
       transformOn: true,
       mergeProps: true
     }),
-    svgstore()
+    svgstore(),
+    Components({
+      resolvers: [VantResolver()],
+    }),
   ],
   //别名
   resolve: {
