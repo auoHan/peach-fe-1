@@ -27,7 +27,14 @@
 	--button-border-color: #ddd;
 	--amount-text: #53a867;
 	--date-text: #999999;
-	--button-bg: white;
-	--button-bg-important: #ef6186;
-	--button-text-important: white;
+	--number-button-bg: white;
+	--number-button-bg-important: #ef6186;
+	--number-button-text-important: white;
+	--input-min-height: 48px;
+	--input-border-color: #ef6186;
+	--input-radius: var(--button-radius);
+	--input-shadow: rgba(0, 0, 0, 0.25);
+	--error-color: #e10505;
+	--emoji-nav-text: #999;
+	--emoji-nav-text-selected: #333;
 }
