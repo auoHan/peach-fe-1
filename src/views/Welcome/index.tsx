@@ -7,7 +7,7 @@ import {
 } from 'vue-router'
 import s from '@/views/welcome/welcome.module.scss'
 import { useSwipe } from '@/hooks/useSwipe'
-import { throttle } from '@/shared/throttle'
+import { throttle } from '@/shared/Throttle/throttle'
 const replaceMap: Record<string, string> = {
 	Welcome1: '/welcome/2',
 	Welcome2: '/welcome/3',

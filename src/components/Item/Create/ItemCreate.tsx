@@ -1,6 +1,6 @@
 import { MainLayout } from '@/layouts/MainLayout'
-import { Icon } from '@/shared/icon/Icon'
-import { Tab, Tabs } from '@/shared/tabs/Tabs'
+import { Icon } from '@/shared/Icon/Icon'
+import { Tab, Tabs } from '@/shared/Tabs/Tabs'
 import { defineComponent, PropType, ref } from 'vue'
 import { InputPad } from '../InputPad/InputPad'
 import s from './ItemCreate.module.scss'

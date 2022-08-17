@@ -8,9 +8,9 @@ import { Second } from '@/components/Welcome/Second/Second'
 import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
-import { ItemPage } from '@/views/itempage'
-import { StartPage } from '@/views/startpage'
-import { Welcome } from '@/views/welcome'
+import { ItemPage } from '@/views/ItemPage'
+import { StartPage } from '@/views/StartPage'
+import { Welcome } from '@/views/Welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
