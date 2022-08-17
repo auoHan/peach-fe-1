@@ -1,5 +1,7 @@
 import { ItemCreate } from '@/components/Item/Create/ItemCreate'
 import { ItemList } from '@/components/Item/List/ItemList'
+import { TagCreate } from '@/components/Tag/TagCreate'
+import { TagEdit } from '@/components/Tag/TagEdit'
 import { First } from '@/components/Welcome/First/First'
 import { FirstActions } from '@/components/Welcome/First/FirstActions'
 import { Forth } from '@/components/Welcome/Forth/Forth'
@@ -10,6 +12,7 @@ import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
 import { ItemPage } from '@/views/ItemPage'
 import { StartPage } from '@/views/StartPage'
+import { TagPage } from '@/views/TagPage'
 import { Welcome } from '@/views/Welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -56,6 +59,14 @@ const routes: RouteRecordRaw[] = [
 		children: [
 			{ path: '', component: ItemList },
 			{ path: 'create', component: ItemCreate }
+		]
+	},
+	{
+		path: '/tags',
+		component: TagPage,
+		children: [
+			{ path: 'create', component: TagCreate },
+			{ path: ':id', component: TagEdit }
 		]
 	}
 ]

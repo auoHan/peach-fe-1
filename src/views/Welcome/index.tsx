@@ -5,7 +5,7 @@ import {
 	useRoute,
 	useRouter
 } from 'vue-router'
-import s from '@/views/welcome/welcome.module.scss'
+import s from './welcome.module.scss'
 import { useSwipe } from '@/hooks/useSwipe'
 import { throttle } from '@/shared/Throttle/throttle'
 const replaceMap: Record<string, string> = {
