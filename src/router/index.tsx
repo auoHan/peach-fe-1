@@ -13,6 +13,7 @@ import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
 import { ItemPage } from '@/views/ItemPage'
 import { SignInPage } from '@/views/SignInPage'
 import { StartPage } from '@/views/StartPage'
+import { StatisticsPage } from '@/views/StatisticsPage'
 import { TagPage } from '@/views/TagPage'
 import { Welcome } from '@/views/Welcome'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
@@ -73,6 +74,10 @@ const routes: RouteRecordRaw[] = [
 	{
 		path: '/sign_in',
 		component: SignInPage
+	},
+	{
+		path: '/statistics',
+		component: StatisticsPage
 	}
 ]
 
