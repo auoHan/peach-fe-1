@@ -6,6 +6,9 @@ export const Overlay = defineComponent({
 	props: {
 		onClose: {
 			type: Function as PropType<() => void>
+		},
+		show: {
+			type: Boolean
 		}
 	},
 	setup: (props, context) => {
