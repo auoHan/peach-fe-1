@@ -98,12 +98,8 @@ export const ItemList = defineComponent({
 											/>
 											<FormItem>
 												<div class={s.actions}>
-													<Button class={s.button} type="button">
-														取消
-													</Button>
-													<Button class={s.button} type="submit">
-														确认
-													</Button>
+													<button type="button">取消</button>
+													<button type="submit">确认</button>
 												</div>
 											</FormItem>
 										</Form>
