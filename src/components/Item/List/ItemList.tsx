@@ -2,6 +2,7 @@ import { MainLayout } from '@/layouts/MainLayout'
 import { Button } from '@/shared/Button/Button'
 import { Form, FormItem } from '@/shared/Form/Form'
 import { Icon } from '@/shared/Icon/Icon'
+import { OverlayIcon } from '@/shared/Overlay/Overlay'
 import { Tab, Tabs } from '@/shared/Tabs/Tabs'
 import { Time } from '@/shared/Time/Time'
 import { Overlay } from 'vant'
@@ -49,7 +50,7 @@ export const ItemList = defineComponent({
 			<MainLayout>
 				{{
 					title: () => '蜜桃记账',
-					icon: () => <Icon name="menu" />,
+					icon: () => <OverlayIcon />,
 					default: () => (
 						<>
 							<Tabs
