@@ -11,6 +11,7 @@ import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
 import { ItemPage } from '@/views/ItemPage'
+import { SignInPage } from '@/views/SignInPage'
 import { StartPage } from '@/views/StartPage'
 import { TagPage } from '@/views/TagPage'
 import { Welcome } from '@/views/Welcome'
@@ -68,6 +69,10 @@ const routes: RouteRecordRaw[] = [
 			{ path: 'create', component: TagCreate },
 			{ path: ':id/edit', component: TagEdit }
 		]
+	},
+	{
+		path: '/sign_in',
+		component: SignInPage
 	}
 ]
 
