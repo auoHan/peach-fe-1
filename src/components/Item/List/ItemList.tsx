@@ -1,4 +1,5 @@
 import { MainLayout } from '@/layouts/MainLayout'
+import { Button } from '@/shared/Button/Button'
 import { Form, FormItem } from '@/shared/Form/Form'
 import { Icon } from '@/shared/Icon/Icon'
 import { Overlay } from '@/shared/Overlay/Overlay'
@@ -40,6 +41,10 @@ export const ItemList = defineComponent({
 			}
 		})
 		const refOverlayVisible = ref(false)
+		const onSubmitCustomTime = (e: Event) => {
+			e.preventDefault()
+			refOverlayVisible.value = false
+		}
 		return () => (
 			<MainLayout>
 				{{
@@ -80,12 +85,27 @@ export const ItemList = defineComponent({
 								<div class={s.overlay_inner}>
 									<header>请选择时间</header>
 									<main>
-										<Form>
+										<Form onSubmit={onSubmitCustomTime}>
 											<FormItem
 												label="开始时间"
 												v-model={customTime.start}
 												type="date"
 											/>
+											<FormItem
+												label="结束时间"
+												v-model={customTime.end}
+												type="date"
+											/>
+											<FormItem>
+												<div class={s.actions}>
+													<Button class={s.button} type="button">
+														取消
+													</Button>
+													<Button class={s.button} type="submit">
+														确认
+													</Button>
+												</div>
+											</FormItem>
 										</Form>
 									</main>
 								</div>
