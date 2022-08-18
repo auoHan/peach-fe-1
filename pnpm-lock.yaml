@@ -5,6 +5,7 @@ specifiers:
   '@vitejs/plugin-vue': 3.0.1
   '@vitejs/plugin-vue-jsx': 2.0.0
   animate.css: 4.1.1
+  echarts: 5.3.3
   sass: 1.54.4
   svgo: 2.8.0
   svgstore: 3.0.1
@@ -18,6 +19,7 @@ specifiers:
 
 dependencies:
   animate.css: 4.1.1
+  echarts: 5.3.3
   svgo: 2.8.0
   svgstore: 3.0.1
   vant: 3.5.4_vue@3.2.37
@@ -807,6 +809,13 @@ packages:
       domhandler: 4.3.1
     dev: false
 
+  /echarts/5.3.3:
+    resolution: {integrity: sha512-BRw2serInRwO5SIwRviZ6Xgm5Lb7irgz+sLiFMmy/HOaf4SQ+7oYqxKzRHAKp4xHQ05AuHw1xvoQWJjDQq/FGw==}
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.3.2
+    dev: false
+
   /electron-to-chromium/1.4.215:
     resolution: {integrity: sha512-vqZxT8C5mlDZ//hQFhneHmOLnj1LhbzxV0+I1yqHV8SB1Oo4Y5Ne9+qQhwHl7O1s9s9cRuo2l5CoLEHdhMTwZg==}
     dev: true
@@ -1383,6 +1392,10 @@ packages:
       is-number: 7.0.0
     dev: true
 
+  /tslib/2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+    dev: false
+
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: false
@@ -1532,3 +1545,9 @@ packages:
   /webpack-virtual-modules/0.4.4:
     resolution: {integrity: sha512-h9atBP/bsZohWpHnr+2sic8Iecb60GxftXsWNLLLSqewgIsGzByd2gcIID4nXcG+3tNe4GQG3dLcff3kXupdRA==}
     dev: true
+
+  /zrender/5.3.2:
+    resolution: {integrity: sha512-8IiYdfwHj2rx0UeIGZGGU4WEVSDEdeVCaIg/fomejg1Xu6OifAL1GVzIPHg2D+MyUkbNgPWji90t0a8IDk+39w==}
+    dependencies:
+      tslib: 2.3.0
+    dev: false
