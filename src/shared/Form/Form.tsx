@@ -89,6 +89,10 @@ export const FormItem = defineComponent({
 					return (
 						<>
 							<input
+								value={props.modelValue}
+								onInput={(e: any) =>
+									context.emit('update:modelValue', e.target.value)
+								}
 								class={[s.formItem, s.input, s.validationCodeInput]}
 								placeholder={props.placeholder}
 							/>
