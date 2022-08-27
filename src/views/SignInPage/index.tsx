@@ -7,6 +7,8 @@ import { hasError, validate } from '@/shared/Validate/Validate'
 import s from './SignInPage.module.scss'
 import { http } from '@/service/Http'
 import { useBool } from '@/hooks/useBool'
+import { router } from '@/router'
+import { createWebHashHistory } from 'vue-router'
 export const SignInPage = defineComponent({
 	setup: (props, context) => {
 		const formData = reactive({
@@ -44,7 +46,9 @@ export const SignInPage = defineComponent({
 				])
 			)
 			if (!hasError(errors)) {
-				const response = await http.post('/session', formData)
+				const response = await http.post<{ jwt: string }>('/session', formData)
+				localStorage.setItem('jwt', response.data.jwt)
+				router.push('/')
 			}
 		}
 		const onError = (error: any) => {
