@@ -26,13 +26,17 @@ export default defineConfig({
     },
   },
   //启动服务配置
-  // server: {
-  //   host: '0.0.0.0',
-  //   port: 8000,
-  //   open: true,
-  //   https: false,
-  //   proxy: {}
-  // },
+  server: {
+    //host: '0.0.0.0',
+    //port: 3000,
+    //open: true,
+    //https: false,
+    proxy: {
+      '/api/v1': {
+        target: 'http://47.92.115.178:3000/',
+      }
+    }
+  },
   // 生产环境打包配置
   //去除 console debugger
   build: {
