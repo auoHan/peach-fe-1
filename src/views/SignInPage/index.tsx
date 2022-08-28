@@ -8,6 +8,7 @@ import s from './SignInPage.module.scss'
 import { http } from '@/service/Http'
 import { useBool } from '@/hooks/useBool'
 import { useRoute, useRouter } from 'vue-router'
+import { refreshMe } from '@/shared/Me/Me'
 export const SignInPage = defineComponent({
 	setup: (props, context) => {
 		const formData = reactive({
@@ -51,6 +52,7 @@ export const SignInPage = defineComponent({
 				localStorage.setItem('jwt', response.data.jwt)
 				// router.push('/sign_in?return_to='+ encodeURIComponent(route.fullPath))
 				const returnTo = route.query.return_to?.toString()
+				refreshMe()
 				router.push(returnTo || '/')
 			}
 		}

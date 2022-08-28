@@ -10,7 +10,7 @@ import { Second } from '@/components/Welcome/Second/Second'
 import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
-import { http } from '@/service/Http'
+import { fetchMe, mePromise } from '@/shared/Me/Me'
 import { ItemPage } from '@/views/ItemPage'
 import { SignInPage } from '@/views/SignInPage'
 import { StartPage } from '@/views/StartPage'
@@ -62,12 +62,6 @@ const routes: RouteRecordRaw[] = [
 	{
 		path: '/items',
 		component: ItemPage,
-		beforeEnter: async (to, from, next) => {
-			await http.get('/me').catch(() => {
-				next('/sign_in?return_to=' + to.path)
-			})
-			next()
-		},
 		children: [
 			{ path: '', component: ItemList },
 			{ path: 'create', component: ItemCreate }
@@ -94,4 +88,23 @@ const routes: RouteRecordRaw[] = [
 export const router = createRouter({
 	routes,
 	history: createWebHashHistory()
+})
+
+fetchMe()
+
+router.beforeEach(async (to, from) => {
+	if (
+		to.path === '/' ||
+		to.path.startsWith('/welcome') ||
+		to.path.startsWith('/sign_in') ||
+		to.path === '/start'
+	) {
+		return true
+	} else {
+		const path = await mePromise!.then(
+			() => true,
+			() => '/sign_in?return_to=' + to.path
+		)
+		return path
+	}
 })
