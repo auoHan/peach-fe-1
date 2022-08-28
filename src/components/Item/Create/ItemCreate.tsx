@@ -5,6 +5,8 @@ import { http } from '@/service/Http'
 import { Icon } from '@/shared/Icon/Icon'
 import { Tabs, Tab } from '@/shared/Tabs/Tabs'
 import { InputPad } from '../InputPad/InputPad'
+import { useTags } from '@/hooks/useTags'
+import { Tags } from '../Tags/Tags'
 export const ItemCreate = defineComponent({
 	props: {
 		name: {
@@ -13,22 +15,17 @@ export const ItemCreate = defineComponent({
 	},
 	setup: (props, context) => {
 		const refKind = ref('支出')
-		onMounted(async () => {
-			const response = await http.get<{ resources: Tag[] }>('/tags', {
-				kind: 'expenses',
-				_mock: 'tagIndex'
-			})
-			refExpensesTags.value = response.data.resources
-		})
-		const refExpensesTags = ref<Tag[]>([])
-		onMounted(async () => {
-			const response = await http.get<{ resources: Tag[] }>('/tags', {
+		const {
+			tags: incomeTags,
+			hasMore: hasMore2,
+			fetchTags: fetchTags2
+		} = useTags((page) => {
+			return http.get<Resources<Tag>>('/tags', {
 				kind: 'income',
+				page: page + 1,
 				_mock: 'tagIndex'
 			})
-			refIncomeTags.value = response.data.resources
 		})
-		const refIncomeTags = ref<Tag[]>([])
 		return () => (
 			<MainLayout class={s.layout}>
 				{{
@@ -38,33 +35,11 @@ export const ItemCreate = defineComponent({
 						<>
 							<div class={s.wrapper}>
 								<Tabs v-model:selected={refKind.value} class={s.tabs}>
-									<Tab name="支出" class={s.tags_wrapper}>
-										<div class={s.tag}>
-											<div class={s.sign}>
-												<Icon name="add" class={s.createTag} />
-											</div>
-											<div class={s.name}>新增</div>
-										</div>
-										{refExpensesTags.value.map((tag) => (
-											<div class={[s.tag, s.selected]}>
-												<div class={s.sign}>{tag.sign}</div>
-												<div class={s.name}>{tag.name}</div>
-											</div>
-										))}
+									<Tab name="支出">
+										<Tags kind="expenses" />
 									</Tab>
-									<Tab name="收入" class={s.tags_wrapper}>
-										<div class={s.tag}>
-											<div class={s.sign}>
-												<Icon name="add" class={s.createTag} />
-											</div>
-											<div class={s.name}>新增</div>
-										</div>
-										{refIncomeTags.value.map((tag) => (
-											<div class={[s.tag, s.selected]}>
-												<div class={s.sign}>{tag.sign}</div>
-												<div class={s.name}>{tag.name}</div>
-											</div>
-										))}
+									<Tab name="收入">
+										<Tags kind="income" />
 									</Tab>
 								</Tabs>
 								<div class={s.inputPad_wrapper}>
