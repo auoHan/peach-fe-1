@@ -10,6 +10,7 @@ import { Second } from '@/components/Welcome/Second/Second'
 import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
+import { http } from '@/service/Http'
 import { ItemPage } from '@/views/ItemPage'
 import { SignInPage } from '@/views/SignInPage'
 import { StartPage } from '@/views/StartPage'
@@ -61,6 +62,12 @@ const routes: RouteRecordRaw[] = [
 	{
 		path: '/items',
 		component: ItemPage,
+		beforeEnter: async (to, from, next) => {
+			await http.get('/me').catch(() => {
+				next('/sign_in?return_to=' + to.path)
+			})
+			next()
+		},
 		children: [
 			{ path: '', component: ItemList },
 			{ path: 'create', component: ItemCreate }
