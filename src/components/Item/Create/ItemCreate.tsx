@@ -9,6 +9,7 @@ import { Icon } from '@/shared/Icon/Icon'
 import { Tabs, Tab } from '@/shared/Tabs/Tabs'
 import { InputPad } from '../InputPad/InputPad'
 import { Tags } from '../Tags/Tags'
+import { BackIcon } from '@/shared/BackIcon/BackIcon'
 export const ItemCreate = defineComponent({
 	props: {
 		name: {
@@ -44,7 +45,7 @@ export const ItemCreate = defineComponent({
 			<MainLayout class={s.layout}>
 				{{
 					title: () => '记一笔',
-					icon: () => <Icon name="left" class={s.navIcon} />,
+					icon: () => <BackIcon />,
 					default: () => (
 						<>
 							<div class={s.wrapper}>
