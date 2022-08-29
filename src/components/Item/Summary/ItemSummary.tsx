@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, PropType, reactive, ref, watch } from 'vue'
+import { defineComponent, PropType, reactive, ref, watch } from 'vue'
 import { FloatButton } from '@/shared/Button/FloatButton'
 import s from './ItemSummary.module.scss'
 import { Button } from '@/shared/Button/Button'
@@ -8,6 +8,7 @@ import { Datetime } from '@/shared/Datetime/Datetime'
 import { Center } from '@/shared/Center/Center'
 import { Icon } from '@/shared/Icon/Icon'
 import { RouterLink } from 'vue-router'
+import { useAfterMe } from '@/hooks/useAfterMe'
 export const ItemSummary = defineComponent({
 	props: {
 		startDate: {
@@ -45,7 +46,7 @@ export const ItemSummary = defineComponent({
 				(pager.page - 1) * pager.per_page + resources.length < pager.count
 			page.value += 1
 		}
-		onMounted(fetchItems)
+		useAfterMe(fetchItems)
 		watch(
 			() => [props.startDate, props.endDate],
 			() => {
@@ -77,7 +78,7 @@ export const ItemSummary = defineComponent({
 			)
 			Object.assign(itemsBalance, response.data)
 		}
-		onMounted(fetchItemsBalance)
+		useAfterMe(fetchItemsBalance)
 		watch(
 			() => [props.startDate, props.endDate],
 			() => {
