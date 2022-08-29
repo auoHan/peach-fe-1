@@ -32,7 +32,8 @@ export const ItemSummary = defineComponent({
 					page: page.value + 1
 				},
 				{
-					_mock: 'itemIndex'
+					_mock: 'itemIndex',
+					_autoLoading: true
 				}
 			)
 			const { resources, pager } = response.data
