@@ -11,7 +11,6 @@ import { SecondActions } from '@/components/Welcome/Second/SecondActions'
 import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
 import { ComingSoon } from '@/shared/ComingSoon/ComingSoon'
-import { fetchMe, mePromise } from '@/shared/Me/Me'
 import { useMeStore } from '@/stores/useMeStore'
 import { ItemPage } from '@/views/ItemPage'
 import { SignInPage } from '@/views/SignInPage'
@@ -114,7 +113,7 @@ router.beforeEach(async (to, from) => {
 	} else {
 		const path = await mePromise!.value!.then(
 			() => true,
-			() => '/sign_in?return_to=' + to.path
+			() => '/sign_in?return_to=' + from.path
 		)
 		return path
 	}
