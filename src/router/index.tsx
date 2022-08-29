@@ -12,6 +12,7 @@ import { Third } from '@/components/Welcome/Third/Third'
 import { ThirdActions } from '@/components/Welcome/Third/ThirdActions'
 import { ComingSoon } from '@/shared/ComingSoon/ComingSoon'
 import { fetchMe, mePromise } from '@/shared/Me/Me'
+import { useMeStore } from '@/stores/useMeStore'
 import { ItemPage } from '@/views/ItemPage'
 import { SignInPage } from '@/views/SignInPage'
 import { StatisticsPage } from '@/views/StatisticsPage'
@@ -97,7 +98,8 @@ export const router = createRouter({
 	history: createWebHashHistory()
 })
 
-fetchMe()
+const meStore = useMeStore()
+meStore.fetchMe()
 
 router.beforeEach(async (to, from) => {
 	if (
@@ -108,7 +110,7 @@ router.beforeEach(async (to, from) => {
 	) {
 		return true
 	} else {
-		const path = await mePromise!.then(
+		const path = await meStore.mePromise!.then(
 			() => true,
 			() => '/sign_in?return_to=' + to.path
 		)
