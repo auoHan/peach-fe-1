@@ -18,6 +18,7 @@ import { SignInPage } from '@/views/SignInPage'
 import { StatisticsPage } from '@/views/StatisticsPage'
 import { TagPage } from '@/views/TagPage'
 import { Welcome } from '@/views/Welcome'
+import { storeToRefs } from 'pinia'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
@@ -102,6 +103,7 @@ const meStore = useMeStore()
 meStore.fetchMe()
 
 router.beforeEach(async (to, from) => {
+	const { mePromise } = storeToRefs(meStore)
 	if (
 		to.path === '/' ||
 		to.path.startsWith('/welcome') ||
@@ -110,7 +112,7 @@ router.beforeEach(async (to, from) => {
 	) {
 		return true
 	} else {
-		const path = await meStore.mePromise!.then(
+		const path = await mePromise!.value!.then(
 			() => true,
 			() => '/sign_in?return_to=' + to.path
 		)
