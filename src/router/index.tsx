@@ -14,7 +14,6 @@ import { ComingSoon } from '@/shared/ComingSoon/ComingSoon'
 import { fetchMe, mePromise } from '@/shared/Me/Me'
 import { ItemPage } from '@/views/ItemPage'
 import { SignInPage } from '@/views/SignInPage'
-import { StartPage } from '@/views/StartPage'
 import { StatisticsPage } from '@/views/StatisticsPage'
 import { TagPage } from '@/views/TagPage'
 import { Welcome } from '@/views/Welcome'
@@ -29,7 +28,7 @@ const routes: RouteRecordRaw[] = [
 		path: '/welcome',
 		component: Welcome,
 		beforeEnter: (to, from, next) => {
-			localStorage.getItem('skipFeatures') === 'yes' ? next('/start') : next()
+			localStorage.getItem('skipFeatures') === 'yes' ? next('/items') : next()
 		},
 		children: [
 			{
@@ -59,7 +58,6 @@ const routes: RouteRecordRaw[] = [
 			}
 		]
 	},
-	{ path: '/start', component: StartPage },
 	{
 		path: '/items',
 		component: ItemPage,
@@ -106,7 +104,7 @@ router.beforeEach(async (to, from) => {
 		to.path === '/' ||
 		to.path.startsWith('/welcome') ||
 		to.path.startsWith('/sign_in') ||
-		to.path === '/start'
+		to.path === '/items'
 	) {
 		return true
 	} else {

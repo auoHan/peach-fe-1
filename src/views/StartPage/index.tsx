@@ -1,5 +1,4 @@
-import { Toast } from 'vant'
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent } from 'vue'
 import { Button } from '@/shared/Button/Button'
 import s from './StartPage.module.scss'
 import { FloatButton } from '@/shared/Button/FloatButton'
@@ -10,13 +9,6 @@ import { RouterLink } from 'vue-router'
 import { MainLayout } from '@/layouts/MainLayout'
 export const StartPage = defineComponent({
 	setup: (props, context) => {
-		onMounted(() => {
-			// Toast.loading({
-			//   message: '加载中...',
-			//   forbidClick: true,
-			//   duration: 0
-			// });
-		})
 		return () => (
 			<MainLayout>
 				{{
