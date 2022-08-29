@@ -18,9 +18,10 @@ export const Tags = defineComponent({
 		const { tags, hasMore, page, fetchTags } = useTags((page) => {
 			return http.get<Resources<Tag>>('/tags', {
 				kind: props.kind,
-				page: page + 1,
-				_mock: 'tagIndex'
-			})
+				page: page + 1,	
+			},{
+        _mock: 'tagIndex'
+      })
 		})
 		const onSelect = (tag: Tag) => {
 			context.emit('update:selected', tag.id)
