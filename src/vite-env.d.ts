@@ -11,6 +11,7 @@ declare module '*.scss' {
   export default content
 }
 
+declare var DEBUG: boolean
 
 type JSONValue = null | boolean | string | number | JSONValue[] | Record<string, JSONValue>
 
@@ -54,4 +55,4 @@ type User = {
   email: string;
 }
 
-type FormErrors<T> = {[K in keyof typeof T]: string[]}
+type FormErrors<T> = { [K in keyof typeof T]: string[] }
