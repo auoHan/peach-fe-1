@@ -98,10 +98,9 @@ export const router = createRouter({
 	history: createWebHashHistory()
 })
 
-const meStore = useMeStore()
-meStore.fetchMe()
-
 router.beforeEach(async (to, from) => {
+	const meStore = useMeStore()
+	meStore.fetchMe()
 	const { mePromise } = storeToRefs(meStore)
 	if (
 		to.path === '/' ||
