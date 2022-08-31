@@ -59,7 +59,7 @@ export class Http {
 }
 
 export const http = new Http(
-	DEBUG ? 'api/v1' : 'http://121.196.236.94:3000/api/v1'
+	DEBUG ? 'api/v1' : 'http://47.92.55.145:3000/api/v1'
 )
 
 http.instance.interceptors.request.use((config) => {
