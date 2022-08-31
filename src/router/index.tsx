@@ -27,7 +27,7 @@ const routes: RouteRecordRaw[] = [
 	},
 	{
 		path: '/welcome',
-		component: Welcome,
+		component: () => import('@/views/Welcome'),
 		beforeEnter: (to, from, next) => {
 			localStorage.getItem('skipFeatures') === 'yes' ? next('/items') : next()
 		},
@@ -61,7 +61,7 @@ const routes: RouteRecordRaw[] = [
 	},
 	{
 		path: '/items',
-		component: ItemPage,
+		component: () => import('@/views/ItemPage'),
 		children: [
 			{ path: '', component: ItemList },
 			{ path: 'create', component: ItemCreate }
@@ -69,27 +69,30 @@ const routes: RouteRecordRaw[] = [
 	},
 	{
 		path: '/tags',
-		component: TagPage,
+		component: () => import('@/views/TagPage'),
 		children: [
-			{ path: 'create', component: TagCreate },
-			{ path: ':id/edit', component: TagEdit }
+			{
+				path: 'create',
+				component: () => import('@/components/Tag/TagCreate')
+			},
+			{ path: ':id/edit', component: () => import('@/components/Tag/TagEdit') }
 		]
 	},
 	{
 		path: '/sign_in',
-		component: SignInPage
+		component: () => import('@/views/SignInPage')
 	},
 	{
 		path: '/statistics',
-		component: StatisticsPage
+		component: () => import('@/views/StatisticsPage')
 	},
 	{
 		path: '/export',
-		component: ComingSoon
+		component: () => import('@/shared/ComingSoon/ComingSoon')
 	},
 	{
 		path: '/notify',
-		component: ComingSoon
+		component: () => import('@/shared/ComingSoon/ComingSoon')
 	}
 ]
 
