@@ -67,7 +67,7 @@ export default defineConfig(({ command }) => {
       //https: false,
       proxy: {
         '/api/v1': {
-          target: 'http://47.92.55.145:3000/',
+          target: 'http://47.92.133.1:3000/',
         }
       }
     }
